@@ -1,0 +1,40 @@
+<!doctype html>
+	<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+		<title>Gerador de Senhas</title>
+		<link rel="stylesheet" href="app.css">
+	</head>
+	<body>
+		<div class="container">
+			<header><img class="logo-indra center" src="logo-indra.jpg" alt="Logo Indra"></header>
+			<div><a id="back" href="#" title="VOLTAR"></a></div>
+			<div id="dashboard">
+				<div><a id="folder" href="#" title="Abrir"></a></div>
+				<section>
+					<div class="generate-passwd">
+						<span id="passwd"></span>
+						<div><a href="#" id="save" title="Salvar"></a></div>
+						<button type="button" name="btn-generate-passwd" id="btn-generate-passwd" class="center">Gerar Senha</button>
+						<div class="list-decode-passwd">
+							<ul id="decode-passwd"></ul>
+						</div>
+					</div>
+				</section>
+			</div>
+
+			<div id="folder-passwd">
+				<div class="folder-list-passwd">
+					<ol id="list-passwd"></ol>
+					<span id="smile">:(</span>
+				</div>
+			</div>
+
+			<div class="about">
+				<p>by Breno Polaski</p>
+			</div>
+		</div>		
+		<script src="jquery.js"></script>
+		<script src="app.js"></script>
+	</body>
+</html>
