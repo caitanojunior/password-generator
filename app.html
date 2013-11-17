@@ -1,40 +1,54 @@
 <!doctype html>
 	<html lang="pt-br">
 	<head>
+		<title>Indra Web - Gerador de Senhas</title>
+
+		<!-- Meta -->
 		<meta charset="UTF-8">
-		<title>Gerador de Senhas</title>
-		<link rel="stylesheet" href="app.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Breno Polanski">
+		<meta name="description" content="Gerador de Senhas para a Indra Web">
+
+		<!-- CSS -->
+		<link rel="stylesheet" href="css/app.css">
 	</head>
 	<body>
 		<div class="container">
-			<header><img class="logo-indra center" src="logo-indra.jpg" alt="Logo Indra"></header>
-			<div><a id="back" href="#" title="VOLTAR"></a></div>
-			<div id="dashboard">
-				<div><a id="folder" href="#" title="Abrir"></a></div>
-				<section>
-					<div class="generate-passwd">
-						<span id="passwd"></span>
-						<div><a href="#" id="save" title="Salvar"></a></div>
-						<button type="button" name="btn-generate-passwd" id="btn-generate-passwd" class="center">Gerar Senha</button>
-						<div class="list-decode-passwd">
-							<ul id="decode-passwd"></ul>
-						</div>
-					</div>
-				</section>
-			</div>
+			<!-- Header -->
+			<header><img class="logo-indra center" src="img/logo-indra.jpg" alt="Logo Indra"></header>
 
-			<div id="folder-passwd">
+			<!-- Dashboard -->
+			<div><a id="back" href="#" title="Voltar"></a></div>
+			<div><a id="trash" href="#" title="Limpar"></a></div>
+			<section id="dashboard">
+				<div><a id="folder" href="#" title="Abrir"></a></div>
+				<div class="generate-passwd">
+					<span id="passwd"></span>
+					<div><a href="#" id="save" title="Salvar"></a></div>
+					<div><a href="#" id="ok" title="Ok"></a></div>
+					<button type="button" name="btn-generate-passwd" id="btn-generate-passwd" class="center">Gerar Senha</button>
+					<div class="list-decode-passwd">
+						<ul id="decode-passwd"></ul>
+					</div>
+				</div>
+			</section>
+
+			<!-- Folder List Password -->
+			<section id="folder-passwd">
 				<div class="folder-list-passwd">
 					<ol id="list-passwd"></ol>
 					<span id="smile">:(</span>
 				</div>
-			</div>
+			</section>
 
-			<div class="about">
-				<p>by Breno Polaski</p>
-			</div>
-		</div>		
-		<script src="jquery.js"></script>
-		<script src="app.js"></script>
+			<!-- About -->
+			<footer class="about">
+				<p>by <a href="https://github.com/brenopolanski" target="_blank">Breno Polaski</a> &bull; version 1.0</p>
+			</footer>
+		</div>
+
+		<!-- JavaScript -->
+		<script src="js/jquery.js"></script>
+		<script src="js/app.js"></script>
 	</body>
 </html>

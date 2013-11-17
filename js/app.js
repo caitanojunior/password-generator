@@ -1,9 +1,28 @@
+/* ------------------------------------------------------------------------------------------------------------------
+    Description : Functions JavaScript Password Generator
+    Version     : 1.0        
+    Last Update : 17 November, 2013
+    Author      : Breno Polanski - breno.polanski@gmail.com - www.brenopolanski.com
+---------------------------------------------------------------------------------------------------------------------
+
+SUBTILES:
+
+    0. GLOBAL
+
+--------------------------------------------------------------------------------------------------------------------- */
+
 $(function(){
 	'use strict';
 
+// ----- 0. MAIN ----- //
+
 	var main = {
 		init: function(){
-			this.btngeneratePasswd();
+			this.btnGeneratePasswd();
+			this.btnFolderListPasswd();
+			this.btnBack();
+			this.btnTrash();
+			this.btnSavePasswd();
 		},
 
 		generatePasswd: function(){
@@ -14,6 +33,7 @@ $(function(){
 				passwd += possible.charAt(Math.floor(Math.random() * possible.length));
 
 			$('#passwd').html(passwd);
+			$('#save').show();
 
 			this.decodePasswd(passwd);
 		},
@@ -84,10 +104,10 @@ $(function(){
 					['10', 'Dez'],
 					['!', 'Exclamacao'],
 					['@', 'Arroba'],
-					['#', 'Cequirlha'],
+					['#', 'Cerquilha'],
 					['$', 'Cifrao'],
 					['%', 'Porcentagem'],
-					['&', 'iComercial'],
+					['&', 'Icomercial'],
 					['*', 'Asterico'],
 					['_', 'Underline'],
 					['+', 'Soma'],
@@ -116,9 +136,57 @@ $(function(){
 			}
 		},
 
-		btngeneratePasswd: function(){
+		btnGeneratePasswd: function(){
 			$('#btn-generate-passwd').on('click', function(){
 				main.generatePasswd();
+				$('#ok').hide();
+			});
+		},
+
+		btnFolderListPasswd: function(){
+			$('#folder').on('click', function(){
+				$('#dashboard').hide();
+				$('#folder-passwd').show();
+				$('#back').show();
+				$('#trash').show();
+				$('#list-passwd').children().remove().end();
+				if (localStorage.length > 0) {
+					$('#smile').hide();
+					for (var i = 1; i <= localStorage.length; i++) {
+						$('#list-passwd').append('<li>'+localStorage.getItem('passwd'+i)+'</li>');
+						if (i == localStorage.length)
+							$('#list-passwd > li:nth-child('+i+')').css('color','blue');
+					}
+				} else {
+					$('#smile').show();
+				}
+			});
+		},
+
+		btnBack: function(){
+			$('#back').on('click', function(){
+				$('#dashboard').show();
+				$('#folder-passwd').hide();
+				$('#back').hide();
+				$('#trash').hide();
+			});
+		},
+
+		btnTrash: function(){
+			$('#trash').on('click', function(){
+				var dialogConfirm = confirm('Deseja apagar as senhas salvas?');
+				if (dialogConfirm == true) {
+					localStorage.clear();
+					location.reload();
+				}
+			});
+		},
+
+		btnSavePasswd: function(){
+			$('#save').on('click', function(){
+				localStorage.setItem('passwd'+(localStorage.length+1), $('#passwd').text());
+				$('#save').hide();
+				$('#ok').show();
 			});
 		}
 

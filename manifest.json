@@ -1,13 +1,17 @@
 {
-    "name": "Indra Web - Gerador de Senha",
-    "description": "Gerador de Senha para o Indra Web", 
+    "name": "Indra Web - Gerador de Senhas",
+    "description": "Gerador de Senhas para a Indra Web", 
     "browser_action": {
-        "default_icon": "icon.png", 
-        "default_title": "Indra Web - Gerador de Senha", 
+        "default_icon": "img/icon32.png", 
+        "default_title": "Indra Web - Gerador de Senhas", 
         "default_popup": "app.html"
     }, 
+    "icons": {  
+        "16": "img/icon16.png",
+        "48": "img/icon48.png"
+    },
     "manifest_version": 2,
     "update_url": "http://clients2.google.com/service/update2/crx",
     "content_security_policy": "script-src 'self' https://www.google.com; object-src 'self'",
-    "version": "0.1"
+    "version": "1.0"
 }
