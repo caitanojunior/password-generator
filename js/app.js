@@ -187,6 +187,7 @@ $(function(){
 				localStorage.setItem('passwd'+(localStorage.length+1), $('#passwd').text());
 				$('#save').hide();
 				$('#ok').show();
+				setTimeout(function(){ location.reload() },800);
 			});
 		}
 
